@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class UltimateList implements Serializable {
     ArrayList<Student> list = new ArrayList<>();
 
+    //vamsi
     class Student implements Serializable {
         private String password;// password
         private Long phNo;// phone number
@@ -19,12 +20,13 @@ public class UltimateList implements Serializable {
         private String otherQualifications;// other things in string
 
         private Boolean isValid;
+
         // single parametric constructor for Student class
         Student() {
             this.password = "12345678";
             isValid = true;
         }
-        
+
         // parametric constructor for Student class
         Student(Long phNo, int rollNo, String name, String batch, String password) {
             this.name = name;
@@ -34,9 +36,9 @@ public class UltimateList implements Serializable {
             this.batch = batch;
             isValid = true;
         }
-        
+
         Student(String password, Long phNo, int rollNo, String name, float tenthPercentage, float twelthPercentage,
-        int noOfBackLogs, float CGPA, String otherQualifications) {
+                int noOfBackLogs, float CGPA, String otherQualifications) {
             this.password = password;
             this.phNo = phNo;
             this.rollNo = rollNo;
@@ -139,7 +141,7 @@ public class UltimateList implements Serializable {
             this.password = password;
         }
 
-        public void changeValidity(Boolean b){
+        public void changeValidity(Boolean b) {
             this.isValid = b;
         }
 
@@ -172,7 +174,8 @@ public class UltimateList implements Serializable {
         Student nexttwelthPercentage;
     }
 
-    UltimateList(){
+    // Sathvik
+    UltimateList() {
         try {
             UltimateList ul = stateSaver.readList();
             this.headBacklogs = ul.headBacklogs;
@@ -210,6 +213,7 @@ public class UltimateList implements Serializable {
     Student headtwelthPercentage;
     Student tailtwelthPercentage;
 
+    
     private void add(Student s) {
 
         if (headCGPA == null) {
@@ -290,8 +294,7 @@ public class UltimateList implements Serializable {
         if (headtenthPercentage == null) {
             this.headtenthPercentage = s;
             this.tailtenthPercentage = s;
-        } 
-        else if (headtenthPercentage == tailtenthPercentage) {
+        } else if (headtenthPercentage == tailtenthPercentage) {
             if (headtenthPercentage.tenthPercentage > s.tenthPercentage) {
                 headtenthPercentage.nexttenthPercentage = s;
                 s.prevtenthPercentage = headtenthPercentage;
@@ -370,65 +373,6 @@ public class UltimateList implements Serializable {
             e.printStackTrace();
         }
     }
-
-    public void register(Long phNo, int rollNo, String name, String batch, String password) {
-
-        Student s = new Student(phNo, rollNo, name,  batch,  password);
-        int in_roll = s.getrollNo();
-        boolean flag = true;
-        Student currentStu = headCGPA;
-        while (currentStu != null) {
-            boolean signal;
-            if (currentStu.getrollNo() == in_roll) {
-                signal = false;
-            } else {
-                signal = true;
-            }
-            flag = flag & signal;
-            currentStu = currentStu.nextCGPA;
-        }
-        if (flag) {
-            add(s);
-            System.out.println("you have been succesfully registerd fto SPMS\nYour serial number is " +
-                    list.indexOf(s) + "\nplease remember this for future purposes");
-        } else {
-            System.out.println("the roll number you are trying to use is already registered please try again");
-        }
-    }
-
-    public void register(String password, Long phNo, int rollNo, String name, float tenthPercentage,
-    float twelthPercentage,
-    int noOfBackLogs, float CGPA, String otherQualifications) {
-
-Student s = new Student(password, phNo, rollNo, name, tenthPercentage, twelthPercentage,
-        noOfBackLogs, CGPA, otherQualifications);
-// taking the roll number with which the student want to register and checks
-// weather
-// it is already used or not. if the entered roll number is valid then adds the
-// student to the list
-// then gives the student an unique nuber which is used when logging in
-int in_roll = s.getrollNo();
-boolean flag = true;
-Student currentStu = headCGPA;
-while (currentStu != null) {
-    boolean signal;
-    if (currentStu.getrollNo() == in_roll) {
-        signal = false;
-    } else {
-        signal = true;
-    }
-    flag = flag & signal;
-    currentStu = currentStu.nextCGPA;
-}
-if (flag) {
-    add(s);
-    list.add(s);
-    System.out.println("you have been succesfully registerd fto SPMS\nYour serial number is " +
-            list.indexOf(s) + "\nplease remember this for future purposes");
-} else {
-    System.out.println("the roll number you are trying to use is already registered please try again");
-}
-}
 
     public void remove(int rollNo) {
         Student currentStu = headCGPA;
@@ -688,7 +632,7 @@ if (flag) {
     }
 
     private void rePosition_twelth(Student s) {
-        
+
         if (s != headtwelthPercentage & s != tailtwelthPercentage) {
             s.nexttwelthPercentage.prevtwelthPercentage = s.prevtwelthPercentage;
             s.prevtwelthPercentage.nexttwelthPercentage = s.nexttwelthPercentage;
@@ -738,6 +682,81 @@ if (flag) {
             currentStu.prevtwelthPercentage.nexttwelthPercentage = s;
             currentStu.prevtwelthPercentage = s;
         }
+    }
+
+    // Vamsi
+    public void register(Long phNo, int rollNo, String name, String batch, String password) {
+
+        Student s = new Student(phNo, rollNo, name, batch, password);
+        int in_roll = s.getrollNo();
+        boolean flag = true;
+        Student currentStu = headCGPA;
+        while (currentStu != null) {
+            boolean signal;
+            if (currentStu.getrollNo() == in_roll) {
+                signal = false;
+            } else {
+                signal = true;
+            }
+            flag = flag & signal;
+            currentStu = currentStu.nextCGPA;
+        }
+        if (flag) {
+            add(s);
+            System.out.println("you have been succesfully registerd fto SPMS\nYour serial number is " +
+                    list.indexOf(s) + "\nplease remember this for future purposes");
+        } else {
+            System.out.println("the roll number you are trying to use is already registered please try again");
+        }
+    }
+
+    public void register(String password, Long phNo, int rollNo, String name, float tenthPercentage,
+            float twelthPercentage, int noOfBackLogs, float CGPA, String otherQualifications) {
+
+        Student s = new Student(password, phNo, rollNo, name, tenthPercentage, twelthPercentage, noOfBackLogs, CGPA,
+                otherQualifications);
+
+        int in_roll = s.getrollNo();
+        boolean flag = true;
+        Student currentStu = headCGPA;
+        while (currentStu != null) {
+            boolean signal;
+            if (currentStu.getrollNo() == in_roll) {
+                signal = false;
+            } else {
+                signal = true;
+            }
+            flag = flag & signal;
+            currentStu = currentStu.nextCGPA;
+        }
+        if (flag) {
+            add(s);
+            list.add(s);
+            System.out.println("you have been succesfully registerd fto SPMS\nYour serial number is " +
+                    list.indexOf(s) + "\nplease remember this for future purposes");
+        } else {
+            System.out.println("the roll number you are trying to use is already registered please try again");
+        }
+    }
+
+    // Girish
+    void changeValidity(int rollNo, Boolean b) {
+        Student currentStu = headCGPA;
+        while (currentStu != null) {
+            if (currentStu.rollNo == rollNo) {
+                currentStu.isValid = b;
+                try {
+                    stateSaver.writeList(this);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return;
+            } else {
+                currentStu = currentStu.nextCGPA;
+                continue;
+            }
+        }
+        System.out.println("The roll number you are trying to delete doesnt exist");
     }
 
     @SuppressWarnings("resource")
@@ -872,128 +891,110 @@ if (flag) {
 
     }
 
-    void changeValidity(int rollNo, Boolean b){
-        Student currentStu = headCGPA;
-        while (currentStu != null) {
-            if (currentStu.rollNo == rollNo) {
-                currentStu.isValid = b;
-                try {
-                    stateSaver.writeList(this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return;
-            } else {
-                currentStu = currentStu.nextCGPA;
-                continue;
-            }
-        }
-        System.out.println("The roll number you are trying to delete doesnt exist");
-    }
-    
-    public ArrayList<Student> getTopCGPA(int i){
+    // Mohit
+    public ArrayList<Student> getTopCGPA(int i) {
         ArrayList<Student> li = new ArrayList<>();
         Student currStudent = headCGPA;
-        for (int j=0 ; j<i ; j++){
-            if(currStudent.isValid){
-                if (!(li.contains(currStudent))){
+        for (int j = 0; j < i; j++) {
+            if (currStudent.isValid) {
+                if (!(li.contains(currStudent))) {
                     li.add(currStudent);
                 }
             }
-            if(currStudent.nextCGPA != null){
+            if (currStudent.nextCGPA != null) {
                 currStudent = currStudent.nextCGPA;
             }
         }
         return li;
     }
 
-    public ArrayList<Student> getTopTenth(int i){
+    public ArrayList<Student> getTopTenth(int i) {
         ArrayList<Student> li = new ArrayList<>();
         Student currStudent = headtenthPercentage;
-        for (int j=0 ; j<i ; j++){
-            if(currStudent.isValid){
-                if (!(li.contains(currStudent))){
+        for (int j = 0; j < i; j++) {
+            if (currStudent.isValid) {
+                if (!(li.contains(currStudent))) {
                     li.add(currStudent);
                 }
             }
-            if(currStudent.nexttenthPercentage != null){
+            if (currStudent.nexttenthPercentage != null) {
                 currStudent = currStudent.nexttenthPercentage;
             }
         }
         return li;
     }
 
-    public ArrayList<Student> getTopTwelth(int i){
-        
+    public ArrayList<Student> getTopTwelth(int i) {
+
         ArrayList<Student> li = new ArrayList<>();
         Student currStudent = headtwelthPercentage;
-        for (int j=0 ; j<i ; j++){
-            if(currStudent.isValid){
-                if (!(li.contains(currStudent))){
+        for (int j = 0; j < i; j++) {
+            if (currStudent.isValid) {
+                if (!(li.contains(currStudent))) {
                     li.add(currStudent);
                 }
             }
-            if(currStudent.nexttwelthPercentage != null){
+            if (currStudent.nexttwelthPercentage != null) {
                 currStudent = currStudent.nexttwelthPercentage;
             }
         }
         return li;
     }
 
-    public ArrayList<Student> getLeastBacklogs(int i){
+    public ArrayList<Student> getLeastBacklogs(int i) {
         ArrayList<Student> li = new ArrayList<>();
         Student currStudent = tailBacklogs;
-        for (int j=0 ; j<i ; j++){
-            if(currStudent.isValid){
-                if (!(li.contains(currStudent))){
+        for (int j = 0; j < i; j++) {
+            if (currStudent.isValid) {
+                if (!(li.contains(currStudent))) {
                     li.add(currStudent);
                 }
             }
-            if(currStudent.prevBacklogs != null){
+            if (currStudent.prevBacklogs != null) {
                 currStudent = currStudent.prevBacklogs;
             }
         }
         return li;
     }
 
+    public ArrayList<Student> filter(Float tenthpercentage, float twelthPercentage, int noOfBackLogs, float CGPA)
+            throws ClassNotFoundException, IOException {
 
-    public ArrayList<Student> filter(Float tenthpercentage, float twelthPercentage,int noOfBackLogs,float CGPA) throws ClassNotFoundException, IOException{
-        
         ArrayList<Student> req_student = new ArrayList<Student>();
         Student s = headCGPA;
-        for (int j=0 ; j< this.size ; j++){
-            if(s.isValid){
-                if (!(req_student.contains(s))){
-                    if(s.gettenthPercentage() >= tenthpercentage){
-                        if(s.gettwelthhPercentage()>=twelthPercentage){
-                            if(s.getnoOfBackLogs()<=noOfBackLogs){
-                                if(s.getCGPA()>=CGPA){
+        for (int j = 0; j < this.size; j++) {
+            if (s.isValid) {
+                if (!(req_student.contains(s))) {
+                    if (s.gettenthPercentage() >= tenthpercentage) {
+                        if (s.gettwelthhPercentage() >= twelthPercentage) {
+                            if (s.getnoOfBackLogs() <= noOfBackLogs) {
+                                if (s.getCGPA() >= CGPA) {
                                     req_student.add(s);
+                                } else {
                                 }
-                                else{}
+                            } else {
                             }
-                            else{}
+                        } else {
                         }
-                        else{}
                     }
                 }
             }
-            if(s.nextCGPA != null){
+            if (s.nextCGPA != null) {
                 s = s.nextCGPA;
             }
         }
         return req_student;
     }
 
-    public void resetApplication(){
-        this.headCGPA= null;
-        this.tailCGPA= null;
-        this.headBacklogs= null;
-        this.tailBacklogs= null;
-        this.headtenthPercentage= null;
-        this.tailtenthPercentage= null;
-        this.headtwelthPercentage= null;
-        this.tailtwelthPercentage= null;
+    public void resetApplication() {
+        this.headCGPA = null;
+        this.tailCGPA = null;
+        this.headBacklogs = null;
+        this.tailBacklogs = null;
+        this.headtenthPercentage = null;
+        this.tailtenthPercentage = null;
+        this.headtwelthPercentage = null;
+        this.tailtwelthPercentage = null;
         this.list.clear();
         try {
             stateSaver.writeList(this);
@@ -1002,7 +1003,7 @@ if (flag) {
         }
     }
 
-    public void printAll(){
+    public void printAll() {
         for (Student student : list) {
             System.out.println(student.oneLineString());
         }

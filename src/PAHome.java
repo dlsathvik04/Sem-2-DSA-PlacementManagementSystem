@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+//Mohit
 public class PAHome {
     @SuppressWarnings("resource")
     //this is a static method this will run when the user is a placement admin

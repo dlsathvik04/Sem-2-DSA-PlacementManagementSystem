@@ -1,6 +1,9 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+
+// Girish
+@SuppressWarnings("resource")
 public class MHome {
     public static void IAmManagement() throws ClassNotFoundException, IOException{
         //create an object for management class
@@ -64,7 +67,6 @@ public class MHome {
                 else if(in1==5){
                     flag= false;
                     System.out.println("you have been logged out succesfully");
-                    sc.close();
                 }
 
                 
