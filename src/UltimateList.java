@@ -895,10 +895,12 @@ public class UltimateList implements Serializable {
     public ArrayList<Student> getTopCGPA(int i) {
         ArrayList<Student> li = new ArrayList<>();
         Student currStudent = headCGPA;
-        for (int j = 0; j < i; j++) {
+        int j = 0;
+        while ( j < i) {
             if (currStudent.isValid) {
                 if (!(li.contains(currStudent))) {
                     li.add(currStudent);
+                    j += 1;
                 }
             }
             if (currStudent.nextCGPA != null) {
@@ -911,10 +913,12 @@ public class UltimateList implements Serializable {
     public ArrayList<Student> getTopTenth(int i) {
         ArrayList<Student> li = new ArrayList<>();
         Student currStudent = headtenthPercentage;
-        for (int j = 0; j < i; j++) {
+        int j = 0;
+        while (j < i) {
             if (currStudent.isValid) {
                 if (!(li.contains(currStudent))) {
                     li.add(currStudent);
+                    j += 1;
                 }
             }
             if (currStudent.nexttenthPercentage != null) {
@@ -928,10 +932,12 @@ public class UltimateList implements Serializable {
 
         ArrayList<Student> li = new ArrayList<>();
         Student currStudent = headtwelthPercentage;
-        for (int j = 0; j < i; j++) {
+        int j = 0;
+        while (j < i) {
             if (currStudent.isValid) {
                 if (!(li.contains(currStudent))) {
                     li.add(currStudent);
+                    j += 1;
                 }
             }
             if (currStudent.nexttwelthPercentage != null) {
@@ -944,10 +950,12 @@ public class UltimateList implements Serializable {
     public ArrayList<Student> getLeastBacklogs(int i) {
         ArrayList<Student> li = new ArrayList<>();
         Student currStudent = tailBacklogs;
-        for (int j = 0; j < i; j++) {
+        int j = 0;
+        while ( j < i) {
             if (currStudent.isValid) {
                 if (!(li.contains(currStudent))) {
                     li.add(currStudent);
+                    j +=1;
                 }
             }
             if (currStudent.prevBacklogs != null) {
