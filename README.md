@@ -1,4 +1,4 @@
-## Getting Started
+## Student Placement Management System
 
 Welcome to Student Placement Management System project. This project is developed to implemnt the concepts of Data Structures and Algorithms in some real life scenarios. this Project is ment learners who started their journey in DSA. This project is made as end-sem project for semester two in the course Data Structures and Algorithms-1.
 
