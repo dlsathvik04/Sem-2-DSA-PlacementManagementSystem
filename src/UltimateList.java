@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class UltimateList implements Serializable {
     ArrayList<Student> list = new ArrayList<>();
 
-    //vamsi
+    // vamsi
     class Student implements Serializable {
         private String password;// password
         private Long phNo;// phone number
@@ -24,7 +24,7 @@ public class UltimateList implements Serializable {
         // single parametric constructor for Student class
         Student() {
             this.password = "12345678";
-            isValid = true;
+            this.isValid = true;
         }
 
         // parametric constructor for Student class
@@ -34,7 +34,7 @@ public class UltimateList implements Serializable {
             this.phNo = phNo;
             this.rollNo = rollNo;
             this.batch = batch;
-            isValid = true;
+            this.isValid = true;
         }
 
         Student(String password, Long phNo, int rollNo, String name, float tenthPercentage, float twelthPercentage,
@@ -48,7 +48,7 @@ public class UltimateList implements Serializable {
             this.noOfBackLogs = noOfBackLogs;
             this.CGPA = CGPA;
             this.otherQualifications = otherQualifications;
-            isValid = true;
+            this.isValid = true;
         }
 
         // setter and getter for phone number
@@ -156,7 +156,7 @@ public class UltimateList implements Serializable {
         // all details in one line
         public String oneLineString() {
             return ("name: " + this.name + "; phone: " + this.phNo +
-                    "; batch: " + this.batch + "; CGPA: " + this.CGPA + "; Roll Number: " +"validity:" + this.isValid+
+                    "; batch: " + this.batch + "; CGPA: " + this.CGPA + "; Roll Number: " +
                     this.rollNo + "; Tenth Percentage: " + this.tenthPercentage + "; Twelth Percentage: " +
                     this.twelthPercentage + "; No of Backlogs: " + this.noOfBackLogs);
         }
@@ -213,7 +213,6 @@ public class UltimateList implements Serializable {
     Student headtwelthPercentage;
     Student tailtwelthPercentage;
 
-    
     private void add(Student s) {
 
         if (headCGPA == null) {
@@ -896,7 +895,7 @@ public class UltimateList implements Serializable {
         ArrayList<Student> li = new ArrayList<>();
         Student currStudent = headCGPA;
         int j = 0;
-        while ( j < i) {
+        while (j < i) {
             if (currStudent.isValid) {
                 if (!(li.contains(currStudent))) {
                     li.add(currStudent);
@@ -951,11 +950,11 @@ public class UltimateList implements Serializable {
         ArrayList<Student> li = new ArrayList<>();
         Student currStudent = tailBacklogs;
         int j = 0;
-        while ( j < i) {
+        while (j < i) {
             if (currStudent.isValid) {
                 if (!(li.contains(currStudent))) {
                     li.add(currStudent);
-                    j +=1;
+                    j += 1;
                 }
             }
             if (currStudent.prevBacklogs != null) {
@@ -967,20 +966,21 @@ public class UltimateList implements Serializable {
 
     public void filter(Float tenthpercentage, float twelthPercentage, int noOfBackLogs, float CGPA)
             throws ClassNotFoundException, IOException {
-        for (Student s: this.list) {
+        for (Student s : this.list) {
             if (s.isValid) {
-                    if (s.gettenthPercentage() >= tenthpercentage) {
-                        if (s.gettwelthhPercentage() >= twelthPercentage) {
-                            if (s.getnoOfBackLogs() <= noOfBackLogs) {
-                                if (s.getCGPA() >= CGPA) {
-                                    System.out.println(s.oneLineString());;
-                                } else {
-                                }
+                if (s.gettenthPercentage() >= tenthpercentage) {
+                    if (s.gettwelthhPercentage() >= twelthPercentage) {
+                        if (s.getnoOfBackLogs() <= noOfBackLogs) {
+                            if (s.getCGPA() >= CGPA) {
+                                System.out.println(s.oneLineString());
+                                ;
                             } else {
                             }
                         } else {
                         }
+                    } else {
                     }
+                }
             }
         }
     }

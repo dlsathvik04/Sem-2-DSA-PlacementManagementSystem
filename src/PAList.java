@@ -142,7 +142,10 @@ public class PAList implements Serializable {
                 // code for prompting the user for using available actions
                 System.out.println("to see all your details press 1");
                 System.out.println("to start the sorting process please enter 2");
-                System.out.println("to log out enter 3");
+                System.out.println("to get top CGPA students press 3");
+                System.out.println("to get top tenth percentage students press 4");
+                System.out.println("to get top twelth percentage students press 5");
+                System.out.println("to log out enter 6");
                 System.out.println("*".repeat(75));
                 int input = sc.nextInt();
                 sc.nextLine();
@@ -171,9 +174,35 @@ public class PAList implements Serializable {
                     ul.filter(req_tenthpercent, req_twelthpercent, req_backlogs,
                             req_CGPA);
                 }
+                else if (input == 3) {
+                    System.out.println("enter the max nuber of students in list");
+                    int i = sc.nextInt();
+                    sc.nextLine();
+                    for (UltimateList.Student s: ul.getTopCGPA(i)){
+                        System.out.println(s.oneLineString());
+                    }
+                }
+
+                else if (input == 4) {
+                    System.out.println("enter the max nuber of students in list");
+                    int i = sc.nextInt();
+                    sc.nextLine();
+                    for (UltimateList.Student s: ul.getTopTenth(i)){
+                        System.out.println(s.oneLineString());
+                    }
+                }
+
+                else if (input == 5) {
+                    System.out.println("enter the max nuber of students in list");
+                    int i = sc.nextInt();
+                    sc.nextLine();
+                    for (UltimateList.Student s: ul.getTopTwelth(i)){
+                        System.out.println(s.oneLineString());
+                    }
+                }
 
                 // code to logout and exit the infinite loop
-                else if (input == 3) {
+                else if (input == 6) {
                     flag = false;
                     System.out.println("you have been logged out");
                     System.out.println("*".repeat(75));
