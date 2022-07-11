@@ -17,8 +17,8 @@ This code is developed by :
 
     Lekha Sathvik Devabathini
     Shinoy Yandra
-    Alap Sherry Suresh
-    Aditya R K Nambiar
+    Gajji Mohit Yadav
+    Surya Vamsi Vema
     Margana Girish Vardhan
 
 This code is developed as a part of end semester project at Amrita School of Engineering, Amritapuri for second semester by group 9 under the Guidance of Dr. Akshara P Byju.
