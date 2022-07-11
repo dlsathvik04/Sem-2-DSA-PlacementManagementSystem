@@ -1,6 +1,6 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Welcome to Student Placement Management System project. This project is developed to implemnt the concepts of Data Structures and Algorithms in some real life scenarios. this Project is ment learners who started their journey in DSA. This project is made as end-sem project for semester two in the course Data Structures and Algorithms-1.
 
 ## Folder Structure
 
@@ -11,8 +11,16 @@ The workspace contains two folders by default, where:
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Makers
 
-## Dependency Management
+This code is developed by :
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+    Lekha Sathvik Devabathini
+    Shinoy Yandra
+    Alap Sherry Suresh
+    Aditya R K Nambiar
+    Margana Girish Vardhan
+
+This code is developed as a part of end semester project at Amrita School of Engineering, Amritapuri for second semester by group 9 under the Guidance of Dr. Akshara P Byju.
+
+this project is a small login register programme which is not online. this project is just made to learn and apply different object oriented concepts in java. 
