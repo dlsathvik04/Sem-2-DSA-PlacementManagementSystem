@@ -24,6 +24,7 @@ public class StudentHome {
 
             System.out.println("please enter password");
             String ent_password = sc2.nextLine();
+            System.out.println("*".repeat(75));
 
             try {
                 ul.login(ent_serialNo, ent_password);

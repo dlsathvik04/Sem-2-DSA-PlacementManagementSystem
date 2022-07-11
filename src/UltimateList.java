@@ -899,12 +899,13 @@ public class UltimateList implements Serializable {
             if (currStudent.isValid) {
                 if (!(li.contains(currStudent))) {
                     li.add(currStudent);
-                    j += 1;
+                    
                 }
             }
             if (currStudent.nextCGPA != null) {
                 currStudent = currStudent.nextCGPA;
             }
+            j += 1;
         }
         return li;
     }
@@ -917,12 +918,13 @@ public class UltimateList implements Serializable {
             if (currStudent.isValid) {
                 if (!(li.contains(currStudent))) {
                     li.add(currStudent);
-                    j += 1;
+                   
                 }
             }
             if (currStudent.nexttenthPercentage != null) {
                 currStudent = currStudent.nexttenthPercentage;
             }
+            j += 1;
         }
         return li;
     }
@@ -936,12 +938,13 @@ public class UltimateList implements Serializable {
             if (currStudent.isValid) {
                 if (!(li.contains(currStudent))) {
                     li.add(currStudent);
-                    j += 1;
+                    
                 }
             }
             if (currStudent.nexttwelthPercentage != null) {
                 currStudent = currStudent.nexttwelthPercentage;
             }
+            j += 1;
         }
         return li;
     }
@@ -954,12 +957,13 @@ public class UltimateList implements Serializable {
             if (currStudent.isValid) {
                 if (!(li.contains(currStudent))) {
                     li.add(currStudent);
-                    j += 1;
+                    
                 }
             }
             if (currStudent.prevBacklogs != null) {
                 currStudent = currStudent.prevBacklogs;
             }
+            j += 1;
         }
         return li;
     }

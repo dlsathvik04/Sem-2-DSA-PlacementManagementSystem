@@ -31,6 +31,7 @@ public class PAHome {
             //password
 			System.out.println("please enter password");
 			String ent_password= sc.nextLine(); 
+            System.out.println("*".repeat(75));
                 
             //code for validating login
             pl.login(ent_serialNo, ent_password);

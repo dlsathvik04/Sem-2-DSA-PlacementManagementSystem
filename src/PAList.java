@@ -153,6 +153,7 @@ public class PAList implements Serializable {
                 // displays all the saved information till now
                 if (input == 1) {
                     System.out.println(array[ser_no].toString());
+                    System.out.println("*".repeat(75));
                 }
 
                 // code to sort the students
@@ -173,32 +174,37 @@ public class PAList implements Serializable {
                     System.out.println("*".repeat(75));
                     ul.filter(req_tenthpercent, req_twelthpercent, req_backlogs,
                             req_CGPA);
+                    System.out.println("*".repeat(75));
+
                 }
                 else if (input == 3) {
-                    System.out.println("enter the max nuber of students in list");
+                    System.out.println("enter the max number of students in list");
                     int i = sc.nextInt();
                     sc.nextLine();
                     for (UltimateList.Student s: ul.getTopCGPA(i)){
                         System.out.println(s.oneLineString());
                     }
+                    System.out.println("*".repeat(75));
                 }
 
                 else if (input == 4) {
-                    System.out.println("enter the max nuber of students in list");
+                    System.out.println("enter the max number of students in list");
                     int i = sc.nextInt();
                     sc.nextLine();
                     for (UltimateList.Student s: ul.getTopTenth(i)){
                         System.out.println(s.oneLineString());
                     }
+                    System.out.println("*".repeat(75));
                 }
 
                 else if (input == 5) {
-                    System.out.println("enter the max nuber of students in list");
+                    System.out.println("enter the max number of students in list");
                     int i = sc.nextInt();
                     sc.nextLine();
                     for (UltimateList.Student s: ul.getTopTwelth(i)){
                         System.out.println(s.oneLineString());
                     }
+                    System.out.println("*".repeat(75));
                 }
 
                 // code to logout and exit the infinite loop
