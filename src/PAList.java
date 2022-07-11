@@ -168,16 +168,8 @@ public class PAList implements Serializable {
                     Float req_CGPA = sc.nextFloat();
                     sc.nextLine();
                     System.out.println("*".repeat(75));
-
-                    // for(Student s : SR.sort(req_tenthpercent, req_twelthpercent, req_backlogs,
-                    // req_CGPA)){
-                    // System.out.println(s.oneLineString());
-                    // }
-                    for (UltimateList.Student s : ul.filter(req_tenthpercent, req_twelthpercent, req_backlogs,
-                            req_CGPA)) {
-                        System.out.println(s.oneLineString());
-                    }
-
+                    ul.filter(req_tenthpercent, req_twelthpercent, req_backlogs,
+                            req_CGPA);
                 }
 
                 // code to logout and exit the infinite loop

@@ -156,7 +156,7 @@ public class UltimateList implements Serializable {
         // all details in one line
         public String oneLineString() {
             return ("name: " + this.name + "; phone: " + this.phNo +
-                    "; batch: " + this.batch + "; CGPA: " + this.CGPA + "; Roll Number: " +
+                    "; batch: " + this.batch + "; CGPA: " + this.CGPA + "; Roll Number: " +"validity:" + this.isValid+
                     this.rollNo + "; Tenth Percentage: " + this.tenthPercentage + "; Twelth Percentage: " +
                     this.twelthPercentage + "; No of Backlogs: " + this.noOfBackLogs);
         }
@@ -965,19 +965,15 @@ public class UltimateList implements Serializable {
         return li;
     }
 
-    public ArrayList<Student> filter(Float tenthpercentage, float twelthPercentage, int noOfBackLogs, float CGPA)
+    public void filter(Float tenthpercentage, float twelthPercentage, int noOfBackLogs, float CGPA)
             throws ClassNotFoundException, IOException {
-
-        ArrayList<Student> req_student = new ArrayList<Student>();
-        Student s = headCGPA;
-        for (int j = 0; j < this.size; j++) {
+        for (Student s: this.list) {
             if (s.isValid) {
-                if (!(req_student.contains(s))) {
                     if (s.gettenthPercentage() >= tenthpercentage) {
                         if (s.gettwelthhPercentage() >= twelthPercentage) {
                             if (s.getnoOfBackLogs() <= noOfBackLogs) {
                                 if (s.getCGPA() >= CGPA) {
-                                    req_student.add(s);
+                                    System.out.println(s.oneLineString());;
                                 } else {
                                 }
                             } else {
@@ -985,13 +981,8 @@ public class UltimateList implements Serializable {
                         } else {
                         }
                     }
-                }
-            }
-            if (s.nextCGPA != null) {
-                s = s.nextCGPA;
             }
         }
-        return req_student;
     }
 
     public void resetApplication() {
